@@ -2,6 +2,8 @@
 
 namespace App\Http\Resources;
 
+use App\Http\Resources\CommentRelationshipResource as CommentRelationshipResource;
+use App\Http\Resources\ArticleRelationshipResource as ArticlesRelationshipResource;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class Article extends JsonResource
@@ -20,7 +22,9 @@ class Article extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
-            'body' => $this->body
+            'body' => $this->body,
+            'relationships' => new ArticlesRelationshipResource($this),
+            'comments' => new CommentRelationshipResource($this)            
         ];
     }
 

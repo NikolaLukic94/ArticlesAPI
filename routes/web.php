@@ -15,12 +15,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('articles','ArticleController@index');
+Route::get('show/one/{id}','ArticleController@showOne');
 
-Route::get('article/{id}','ArticleController@show');
-
+Route::resource('articles','ArticleController');
+Route::get('show/{id}','ArticleController@show');
 Route::post('article','ArticleController@store');
-
 Route::put('article','ArticleController@update');
-
 Route::delete('article/{id}','ArticleController@destroy');
+
+Route::resource('author/{authorId}','AuthorController@show');
+

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\Http\Resources\Article as ArticleResource;
-
+use App\Http\Resources\ArticleRelationshipResource as ArticlesRelationshipResource;
 
 class ArticleController extends Controller
 {
@@ -53,7 +53,20 @@ class ArticleController extends Controller
         return new ArticleResource($article);
     }
 
-
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function showOne($id)
+    {
+        $article = Article::findOrFail($id);
+        //return single article as a resource
+        return view('articles.show', [
+            'article' => $article    
+        ]);
+    }
 
     /**
      * Remove the specified resource from storage.
