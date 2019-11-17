@@ -9,6 +9,17 @@ use App\Http\Resources\ArticleRelationshipResource as ArticlesRelationshipResour
 
 class ArticleController extends Controller
 {
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        return view('article/display');
+    }
+
     /**
      * Display a listing of the resource.
      *

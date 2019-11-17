@@ -23,8 +23,7 @@ class Article extends JsonResource
             'id' => $this->id,
             'title' => $this->title,
             'body' => $this->body,
-            'relationships' => new ArticlesRelationshipResource($this),
-            'comments' => new CommentRelationshipResource($this)            
+            'relationships' => new ArticlesRelationshipResource($this),         
         ];
     }
 
